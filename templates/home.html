@@ -1,1 +1,12 @@
-<h1>Home Page</h1>
+{% extends '_base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid main-container">
+    <div class="container">
+        <h1 style="text-align:center;color:white;" class="display-6">Welcome to BookShop</h1>
+        <p style="text-align:center;color:white;">You’re Only One Book Away From a Good Mood.</p>
+    </div>
+</div>
+{% endblock content %}
