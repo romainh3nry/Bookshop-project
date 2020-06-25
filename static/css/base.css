@@ -31,3 +31,18 @@
     background-color:white;
     color: #543da3; !default
 }
+.input-search{
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 2px 2px 2px black;
+}
+.btn-search{
+    20px 20px 20px 20px;
+    color: white;
+    border: 1px solid white;
+    box-shadow: 2px 2px 2px black;
+}
+.btn-search:hover{
+    background-color:white;
+    color: #543da3;
+    box-shadow: 0px 0px 0px black;
+}
