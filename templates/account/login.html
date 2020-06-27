@@ -1,12 +1,13 @@
 {% extends '_base.html' %}
 {% load crispy_forms_tags %}
+{% load socialaccount %}
 
 {% block title %}Login{% endblock title %}
 
 {% block content %}
 <div class="container">
     <div class="row d-flex justify-content-center">
-        <div class="col-lg-5 col-md-7">
+        <div class="col-xl-6 col-lg-7 col-md-8 col-sm-10">
             <div class="login-container mt-5">
                 <h3 class="p-3 login-title" style="text-align:center;">Login</h3>
                 <hr>
@@ -15,6 +16,7 @@
                     {{ form|crispy }}
                     <button class="btn btn-block btn-login">Login</button>
                     <div style="text-align:center;" class="mt-4">
+                        <p><a style="color:grey;" href="{% provider_login_url 'google' %}"><i style="color:blue;" class="fab fa-google"></i> Login with Gmail</a></p>
                         <p><a style="color:grey;" href="{% url 'account_reset_password' %}">Forgot your password?</a></p>
                         <a style="color:grey;" href="{% url 'account_signup' %}">New account</a>
                     </div>

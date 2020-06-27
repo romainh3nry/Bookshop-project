@@ -45,7 +45,9 @@ INSTALLED_APPS = [
     # third party
     'crispy_forms',
     'allauth',
-    'allauth.account'
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
