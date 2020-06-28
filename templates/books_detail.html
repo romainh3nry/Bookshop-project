@@ -17,6 +17,13 @@
                         <hr>
                         <p class="card-text">{{ book.plot }}</p>
                         <hr>
+                        <p>Buy for {{ book.price }}</p>
+                        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                        data-key="{{ stripe_key }}"
+                        data-description="{{ book.title }}"
+                        data-amount="{{ book.price }}"
+                        data-locale="auto">
+                        </script>
                     </div>
                 </div>
             </div>
