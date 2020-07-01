@@ -1,0 +1,30 @@
+{% extends '_base.html' %}
+
+{% block title %}Search{% endblock title %}
+
+{% block content %}
+<div class="container-fluid container-book-list">
+    <div class="container">
+        <hr class="my-4">
+        <div class="jumbotron jumbotron-book-list pt-0">
+            <div class="row">
+                {% for book in books_list %}
+                <div class="col-lg-4 col-xl-3 col-md-4 col-sm-6 col-xs-12">
+                    <a href="{{ book.get_absolute_url }}">
+                        <div class="card book-card container-card" style="text-align:center;">
+                            <img src="{{ book.picture }}" class="d-block img-thumbnai image" alt="..." style="max-width: 100%;height: 300px;width:auto;">
+                            <div class="overlay">
+                                <div class="text">{{ book.title }}</div>
+                            </div>
+                            <div class="card-footer">
+                                <small style="font-size:17px;" class="text-muted">${{ book.price }}</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

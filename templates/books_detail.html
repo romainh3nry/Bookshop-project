@@ -18,12 +18,23 @@
                         <p class="card-text">{{ book.plot }}</p>
                         <hr>
                         <p>Buy for {{ book.price }}</p>
-                        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                        data-key="{{ stripe_key }}"
-                        data-description="{{ book.title }}"
-                        data-amount="{{ book.price }}"
-                        data-locale="auto">
-                        </script>
+                        {% if user.is_authenticated %}
+                        <form action="{% url 'charge' %}" method="post">
+                            {% csrf_token %}
+                            <input class="d-none" type="text" value="{{ book.title }}" name="description">
+                            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                    data-key="{{ stripe_key }}"
+                                    data-description="{{ book.title }}"
+                                    data-amount="{{ book.price }}"
+                                    data-locale="auto"
+                                    data-label="Buy {{ book.title }}">
+                            </script>
+                        </form>
+                        {% else %}
+                        <div class="alert alert-light" role="alert">
+                            You have to be logged to purchase, go to the <a class="alert-link" href="{% url 'account_login' %}">login page</a>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
